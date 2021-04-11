@@ -28,17 +28,35 @@ export class Login extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1, justifyContent: "center" }}>
         <TextInput
           placeholder="email"
           onChangeText={(email) => this.setState({ email })}
+          style={{
+            marginHorizontal: 20,
+            marginBottom: 15,
+            padding: 10,
+            borderColor: "grey",
+            borderWidth: 3,
+            height: 50,
+            borderRadius: 14,
+          }}
         />
         <TextInput
           placeholder="password"
           secureTextEntry={true}
           onChangeText={(password) => this.setState({ password })}
+          style={{
+            marginHorizontal: 20,
+            marginBottom: 15,
+            padding: 10,
+            borderColor: "grey",
+            borderWidth: 3,
+            height: 50,
+            borderRadius: 14,
+          }}
         />
-        <Button onPress={() => this.onSignIn()} title="Sign Up" />
+        <Button onPress={() => this.onSignIn()} title="Sign In" />
       </View>
     );
   }

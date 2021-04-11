@@ -95,7 +95,11 @@ export class App extends Component {
       <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Landing">
-            <Stack.Screen name="Main" component={Main} />
+            <Stack.Screen
+              name="Main"
+              component={Main}
+              options={{ title: "Instagram" }}
+            />
             <Stack.Screen
               name="Add"
               component={Add}

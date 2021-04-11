@@ -9,7 +9,7 @@ import * as ImageManipulator from "expo-image-manipulator";
 
 export default function Save(props) {
   const [caption, setCaption] = useState("");
-
+  console.log(props);
   const uploadImage = async () => {
     const { uri } = await ImageManipulator.manipulateAsync(
       props.route.params.image,
@@ -67,10 +67,20 @@ export default function Save(props) {
 
   return (
     <View style={{ flex: 1 }}>
-      <Image source={{ uri: props.route.params.image }} />
+      <Image
+        source={{ uri: props.route.params.image }}
+        style={{ aspectRatio: 1 / 1 }}
+      />
       <TextInput
         placeholder="Write a caption.."
         onChangeText={(caption) => setCaption(caption)}
+        style={{
+          marginBottom: 15,
+          padding: 10,
+          borderBottomColor: "grey",
+          borderBottomWidth: 1,
+          height: 50,
+        }}
       />
       <Button title="Save" onPress={() => uploadImage()} />
     </View>

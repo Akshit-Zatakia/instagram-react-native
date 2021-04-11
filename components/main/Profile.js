@@ -12,7 +12,7 @@ function Profile(props) {
 
   useEffect(() => {
     const { currentUser, posts } = props;
-    console.log(props.route.params.uid);
+    console.log("uu", props.route.params.uid);
     if (props.route.params.uid === firebase.auth().currentUser.uid) {
       setuser(currentUser);
       setuserPosts(posts);
@@ -41,10 +41,12 @@ function Profile(props) {
           let posts = snapshot.docs.map((doc) => {
             const data = doc.data();
             const id = doc.id;
+            // console.log("Data-", data);
             return { id, ...data };
           });
           setuserPosts(posts);
         });
+      // console.log(userPosts);
     }
     if (props.following.indexOf(props.route.params.uid) > -1) {
       setfollowing(true);
@@ -77,14 +79,20 @@ function Profile(props) {
       .delete();
   };
 
+  const onLogout = () => {
+    firebase.auth().signOut();
+  };
+
   if (user === null) {
     return <View></View>;
   }
   return (
     <View style={styles.container}>
       <View style={styles.infoContainer}>
-        <Text>{user.name}</Text>
-        <Text>{user.email}</Text>
+        <Text style={{ paddingHorizontal: 10, fontSize: 20 }}>{user.name}</Text>
+        <Text style={{ paddingHorizontal: 10, fontSize: 18, marginBottom: 10 }}>
+          {user.email}
+        </Text>
         {props.route.params.uid !== firebase.auth().currentUser.uid ? (
           <View>
             {following ? (
@@ -93,7 +101,9 @@ function Profile(props) {
               <Button title="Follow" onPress={() => onFollow()} />
             )}
           </View>
-        ) : null}
+        ) : (
+          <Button title="Logout" onPress={() => onLogout()} />
+        )}
       </View>
       <View style={styles.galleryContainer}>
         <FlatList

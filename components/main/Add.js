@@ -77,6 +77,7 @@ export default function Add({ navigation }) {
       <Button title="Take Picture" onPress={() => takePicture()} />
       <Button title="Choose Image" onPress={() => pickImage()} />
       <Button
+        disabled={image ? false : true}
         title="Save"
         onPress={() => navigation.navigate("Save", { image })}
       />

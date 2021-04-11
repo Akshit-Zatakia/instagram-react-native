@@ -32,6 +32,14 @@ export default function Search(props) {
       <TextInput
         placeholder="Type here.."
         onChangeText={(search) => fetchUsers(search)}
+        style={{
+          marginBottom: 15,
+          padding: 10,
+          borderBottomColor: "grey",
+          borderBottomWidth: 1,
+          height: 50,
+          borderRadius: 14,
+        }}
       />
       <FlatList
         numColumns={1}
@@ -43,7 +51,7 @@ export default function Search(props) {
               props.navigation.navigate("Profile", { uid: item.id })
             }
           >
-            <Text>{item.name}</Text>
+            <Text style={{ marginVertical: 6, padding: 10 }}>{item.name}</Text>
           </TouchableOpacity>
         )}
       />
