@@ -23,13 +23,13 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 // Configuring the firebase (In production put it in .env file)
 const firebaseConfig = {
-  apiKey: "AIzaSyDZjvojfr004FJ1Ug1M8GHAuV5ThDmII64",
-  authDomain: "instagram-d4a67.firebaseapp.com",
-  projectId: "instagram-d4a67",
-  storageBucket: "instagram-d4a67.appspot.com",
-  messagingSenderId: "1071786350900",
-  appId: "1:1071786350900:web:7e0fd49937ca58b6062d61",
-  measurementId: "G-7C7BF0K2PT",
+  apiKey: "Your Key",
+  authDomain: "Your auth domain",
+  projectId: "your project id",
+  storageBucket: "your storage bucket",
+  messagingSenderId: "your messaging sender id",
+  appId: "your add id",
+  measurementId: "your measurment id",
 };
 
 // Check if there are no apps then initialize one
